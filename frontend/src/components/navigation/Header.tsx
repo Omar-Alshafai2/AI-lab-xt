@@ -3,12 +3,11 @@ import {
   Activity, 
   Search, 
   ExternalLink, 
-  BookOpen, 
-  Settings, 
   Terminal, 
   Cpu, 
   Database,
-  Sparkles
+  PanelLeftOpen,
+  PanelLeftClose
 } from 'lucide-react';
 import { ActiveView } from '../../lib/types';
 import { isSupabaseConfigured } from '../../lib/supabaseClient';
@@ -19,6 +18,8 @@ interface HeaderProps {
   openCommandPalette: () => void;
   selectedModelName: string;
   selectedModelVram?: number;
+  sidebarOpen?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,6 +28,8 @@ export const Header: React.FC<HeaderProps> = ({
   openCommandPalette,
   selectedModelName,
   selectedModelVram,
+  sidebarOpen = true,
+  onToggleSidebar,
 }) => {
   const [latency, setLatency] = useState<number | null>(null);
   const [memoryUsage, setMemoryUsage] = useState<string>('Allocating...');
@@ -66,8 +69,21 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="h-14 border-b border-[#27272A] bg-[#111113]/90 backdrop-blur-md sticky top-0 z-40 px-4 flex items-center justify-between">
-      {/* Left: Brand & Telemetry Status */}
-      <div className="flex items-center gap-6">
+      {/* Left: Sidebar Toggle + Brand & Telemetry Status */}
+      <div className="flex items-center gap-3">
+        {/* Sidebar Toggle Button */}
+        {activeView !== 'landing' && onToggleSidebar && (
+          <button
+            onClick={onToggleSidebar}
+            className="p-1.5 rounded text-[#A1A1AA] hover:text-[#FAFAFA] hover:bg-[#18181B] border border-transparent hover:border-[#27272A] transition-colors"
+            title={sidebarOpen ? 'Collapse Sidebar' : 'Expand Sidebar'}
+          >
+            {sidebarOpen
+              ? <PanelLeftClose className="w-4 h-4" />
+              : <PanelLeftOpen className="w-4 h-4" />}
+          </button>
+        )}
+        <div className="flex items-center gap-6">
         <button 
           onClick={() => setActiveView('landing')}
           className="flex items-center gap-2 text-left group focus:outline-none"
@@ -111,6 +127,7 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Right: Quick Command Search, Docs, GitHub, User Profile */}
@@ -134,18 +151,9 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="text-cyan-400 font-medium truncate max-w-[130px]">{selectedModelName}</span>
         </div>
 
-        {/* Documentation Link */}
-        <button
-          onClick={() => setActiveView('docs')}
-          className="p-1.5 rounded text-[#A1A1AA] hover:text-[#FAFAFA] hover:bg-[#18181B] border border-transparent hover:border-[#27272A] transition-colors"
-          title="System Documentation"
-        >
-          <BookOpen className="w-4 h-4" />
-        </button>
-
         {/* GitHub External */}
         <a
-          href="https://github.com"
+          href="https://github.com/Omar-Alshafai2/cortexlab"
           target="_blank"
           rel="noopener noreferrer"
           className="p-1.5 rounded text-[#A1A1AA] hover:text-[#FAFAFA] hover:bg-[#18181B] border border-transparent hover:border-[#27272A] transition-colors"
@@ -153,20 +161,6 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <ExternalLink className="w-4 h-4" />
         </a>
-
-        {/* User Badge: OMAR */}
-        <div className="flex items-center gap-2 pl-2 border-l border-[#27272A]">
-          <button 
-            onClick={() => setActiveView('overview')}
-            className="flex items-center gap-2 px-2 py-1 rounded bg-[#18181B] border border-[#27272A] hover:border-cyan-500/40 text-xs font-mono text-[#FAFAFA] transition-colors"
-          >
-            <div className="w-5 h-5 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-[10px] text-cyan-300 font-bold">
-              O
-            </div>
-            <span className="hidden sm:inline font-semibold">OMAR</span>
-            <Settings className="w-3.5 h-3.5 text-[#A1A1AA]" />
-          </button>
-        </div>
       </div>
     </header>
   );

@@ -30,6 +30,7 @@ export function App() {
   const [experiments, setExperiments] = useState<Experiment[]>(INITIAL_EXPERIMENTS);
   const [selectedExperiment, setSelectedExperiment] = useState<Experiment | null>(INITIAL_EXPERIMENTS[0]);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   // Active Model Object
   const selectedModel = MODELS_REGISTRY.find(m => m.id === selectedModelId) || MODELS_REGISTRY[0];
@@ -59,6 +60,8 @@ export function App() {
         openCommandPalette={() => setIsCommandPaletteOpen(true)}
         selectedModelName={selectedModel.name}
         selectedModelVram={selectedModel.vramMb}
+        sidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen(prev => !prev)}
       />
 
       {/* Global Command Palette (Ctrl+K) */}
@@ -81,10 +84,12 @@ export function App() {
       ) : (
         <div className="flex-1 flex overflow-hidden">
           {/* Scientific Sidebar */}
-          <Sidebar
-            activeView={activeView}
-            setActiveView={setActiveView}
-          />
+          {sidebarOpen && (
+            <Sidebar
+              activeView={activeView}
+              setActiveView={setActiveView}
+            />
+          )}
 
           {/* Laboratory Workspace Views */}
           <main className="flex-1 overflow-y-auto bg-[#09090B] relative">
