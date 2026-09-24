@@ -172,7 +172,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
         {/* Terminal Header tag */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#111113] border border-[#27272A] text-xs font-mono text-[#A1A1AA] mb-8">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          <span className="text-[#FAFAFA] font-semibold">CORTEXLAB</span>
+          <span className="text-[#FAFAFA] font-semibold">AI LAB XT</span>
           <span className="text-[#71717A]">|</span>
           <span>INTERACTIVE RESEARCH SUITE V1.0</span>
         </div>

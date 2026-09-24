@@ -24,7 +24,7 @@ const PRESETS = [
   "The animal didn't cross the street because it was tired.",
   'function softmax(x) { return Math.exp(x) / sum(Math.exp(x)); }',
   '日本語のトークン化はどのように機能しますか？',
-  'CORTEXLAB: Interactive AI Research Laboratory — built with ❤️',
+  'AI LAB XT: Interactive AI Research Laboratory — built with ❤️',
 ];
 
 export const TokenizationLab: React.FC = () => {

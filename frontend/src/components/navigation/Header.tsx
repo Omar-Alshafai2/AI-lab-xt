@@ -93,10 +93,10 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div className="flex flex-col">
             <span className="font-mono font-bold tracking-wider text-sm text-[#FAFAFA] flex items-center gap-1.5">
-              CORTEXLAB
+              AI LAB XT
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block animate-pulse"></span>
             </span>
-            <span className="text-[10px] font-mono text-[#A1A1AA] -mt-0.5">RESEARCH ENGINE</span>
+            <span className="text-[10px] font-mono text-[#A1A1AA] -mt-0.5">RESEARCH SUITE</span>
           </div>
         </button>
 
