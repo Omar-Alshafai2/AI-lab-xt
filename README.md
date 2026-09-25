@@ -4,7 +4,7 @@
 
 ### **Interactive AI Research, Evaluation & Architecture Laboratory**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-ai--lab--xt.vercel.app-06B6D4?style=for-the-badge&logo=vercel&logoColor=white)](https://ai-lab-xt.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-cortexlab--tan.vercel.app-06B6D4?style=for-the-badge&logo=vercel&logoColor=white)](https://cortexlab-tan.vercel.app)
 [![React](https://img.shields.io/badge/React%2019-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
@@ -30,7 +30,7 @@
 ## ًںŒگ Live Production Deployment
 
 > **Experience the live suite directly in your browser â€” no installation required:**
-> ًں”— **[https://ai-lab-xt.vercel.app](https://ai-lab-xt.vercel.app)**
+> ًں”— **[https://cortexlab-tan.vercel.app](https://cortexlab-tan.vercel.app)**
 > *(No authentication required â€” instantly explore interactive labs, attention heatmaps, and RAG diagnostics.)*
 
 ---
@@ -257,7 +257,7 @@ uvicorn app.main:app --reload --port 8000
 
 * **Creator & Lead Engineer:** **[Omar Alshafai](https://github.com/Omar-Alshafai2)**
   * GitHub: [@Omar-Alshafai2](https://github.com/Omar-Alshafai2)
-  * Live Suite: [https://ai-lab-xt.vercel.app](https://ai-lab-xt.vercel.app)
+  * Live Suite: [https://cortexlab-tan.vercel.app](https://cortexlab-tan.vercel.app)
 
 * **AI Pair-Programming & Systems Architecture Assistance:**
   * Built and refined with pair-programming support from **[Antigravity](https://deepmind.google/)** by the **Google DeepMind** team.
